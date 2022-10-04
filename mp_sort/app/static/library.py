@@ -74,7 +74,11 @@ def sortnumber2():
 	# store the final string to the variable array_str
 	value = "".join(value.split())
 	array = value.split(",")
-	array = [int(val) for val in array]
+	try:
+		array = [float(val) for val in array]
+	except:
+		window.alert("Your input contains non-numbers!")
+		return
 	for outer in range(1,len(array)):
 		for inner in range(outer, 0 , -1):
 			if array[inner] < array[inner - 1]:
